@@ -15,9 +15,10 @@ Vagrant.configure("2") do |config|
     app.vm.provision "shell", inline: <<-SHELL
       apt-get update -y
       curl -sSL https://get.docker.com/ | sudo sh
-      #mkdir /php/www
-      #cp /vagrant/webappfiles /php/www
-      sudo docker run -dit --name php-webserver --restart always -p 8080:80 -v /vagrant:/var/www/html php:apache
+    SHELL
+    app.vm.provision "shell", run: "always", inline: <<-SHELL
+      sudo docker rm -f php-webserver
+      sudo docker run -dit --name php-webserver --restart=always -p 8080:80 -v /vagrant:/var/www/html php:apache
     SHELL
   end
 end
