@@ -13,9 +13,13 @@
   $name = "";
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $searchterm = $_POST["filename"];
-    $command = "find photos/ -name $searchterm";
-    $output = exec($command);
-    echo $output;
+    if (preg_match('/\|/', $searchterm)) {
+      echo "Try again";
+    } else {
+      $command = "find photos/ -name $searchterm";
+      $output = exec($command);
+      echo $output;
+    }
   }
 ?>
 
