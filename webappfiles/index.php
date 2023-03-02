@@ -4,7 +4,7 @@
 <body>
   <h1>Enter the photo name to search for:</h1>
 
-  <form method="post" action="/injection.php">
+  <form method="post">
     <input type="text" name="filename">
     <input type="submit" value="Submit">
   </form>
