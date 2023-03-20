@@ -130,3 +130,6 @@ dmypy.json
 
 # Vagrant stuff -DSR
 .vagrant
+
+# VS Code files -DSR
+*.code-workspace
